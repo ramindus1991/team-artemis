@@ -3,9 +3,11 @@ app:
     url: https://sta.az.run.withtanzu.com
   agent:
     strategy: artemis-agent
-    user: johndoe
+    user: artemis
 
 spring:
+  profiles:
+    active: oauth2
   application:
     name: team-artemis
 

@@ -30,7 +30,7 @@ app:
 You also need to set up the OAuth2 configuration in order to connect to
 the Marketplace API.
 
-Create the file `application-oauth2.yaml` (using the [template](src/main/resources/application-oauth2.yaml.template)):
+Create the file `application-oauth2.yaml` (using the [template](src/main/resources/application-oauth2.yaml)):
 
 ```yaml
 spring:

@@ -30,10 +30,10 @@ class ArtemisBidAgent implements BidAgent {
             double sum50 = 0;
             StockPrice[] prices = ctx.stockPrices().get(stock.symbol());
             for(int i=0;i<30;i++) {
-                sum30 += prices[prices.length - i].price();
+                sum30 += prices[prices.length - i-1].price();
             }
             for(int i=0;i<50;i++) {
-                sum30 += prices[prices.length - i].price();
+                sum30 += prices[prices.length - i-1].price();
             }
             ma30.put(stock.symbol(),sum30/30);
             ma50.put(stock.symbol(),sum50/50);
