@@ -48,12 +48,19 @@ class ArtemisBidAgent implements BidAgent {
         for(var stock:buyingStocks){
             int stocks = (int)(ctx.userBalance().doubleValue() / (3*buyingStocks.size()*stock.price().doubleValue()));
             stockAmount.put(stock.symbol(),stocks);
-            currentStocks.put(stock.symbol(),currentStocks.put(stock.symbol(),stocks+currentStocks.get(stock.symbol())));
+            int newStocks = 0;
+            if(currentStocks.get(stock.symbol())!=null)
+                newStocks+=currentStocks.get(stock.symbol());
+            currentStocks.put(stock.symbol(),currentStocks.put(stock.symbol(),stocks+newStocks));
         }
 
         for(var stock:sellingStocks){
             int stocks = (int)(ctx.userBalance().doubleValue() / (3*stock.price().doubleValue()));
-            stockAmount.put(stock.symbol(),currentStocks.get(stock.symbol()));
+            if(currentStocks.get(stock.symbol())!=null)
+                stockAmount.put(stock.symbol(),currentStocks.get(stock.symbol()));
+            else
+                stockAmount.put(stock.symbol(),0);
+
             currentStocks.put(stock.symbol(),0);
         }
 
