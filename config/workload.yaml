@@ -9,7 +9,7 @@ metadata:
 spec:
   source:
     git:
-      url: <https URL for your generated project's Git repository>
+      url: https://github.com/ramindus1991/team-artemis.git
       ref:
         branch: main
   build:
