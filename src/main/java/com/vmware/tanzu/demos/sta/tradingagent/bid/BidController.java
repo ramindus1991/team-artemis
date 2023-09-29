@@ -60,6 +60,18 @@ class BidController {
             return;
         }
 
+        Map<String,StockPrice[]> stockPriceMap = new HashMap<>();
+
+        for(Stock stock:stocks){
+            var stockPrices = client.getForObject("/api/v1/stocks/"+stock.symbol()+"/values", StockPrice[].class);
+            if (stocks == null || stocks.length == 0) {
+                logger.info("Found no stocks");
+                out.println("Found no stocks");
+                return;
+            }
+            stockPriceMap.put(stock.symbol(),stockPrices);
+        }
+
         // Sort stocks against symbol.
         Arrays.sort(stocks, Comparator.comparing(Stock::symbol));
 
@@ -93,6 +105,12 @@ class BidController {
             public String user() {
                 return user;
             }
+
+            @Override
+            public Map<String,StockPrice[]> stockPrices() {
+                return stockPriceMap;
+            }
+
         };
 
         final var requests = bidAgent.execute(ctx);

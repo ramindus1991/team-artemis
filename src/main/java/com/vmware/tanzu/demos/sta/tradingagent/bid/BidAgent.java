@@ -15,5 +15,7 @@ interface BidAgent {
         BigDecimal userBalance();
 
         String user();
+
+        Map<String,StockPrice[]> stockPrices();
     }
 }
