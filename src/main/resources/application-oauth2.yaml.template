@@ -4,8 +4,8 @@ spring:
       client:
         registration:
           sso:
-            client-id: insert-client-id
-            client-secret: insert-client-secret
+            client-id: sta_artemis
+            client-secret: a5f4ad8d-285f-4ad9-8eb3-aae04be3ac15
             authorization-grant-type: client_credentials
             scope:
             - bid
