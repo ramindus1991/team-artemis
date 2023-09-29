@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: team-artemis-config
+type: Opaque
+stringData:
+  provider: sandbox
+  type: config
+  app.marketplace.url: https://sta.az.run.withtanzu.com
+  app.agent.strategy: buy-lower-stock
+  app.agent.user: johndoe
